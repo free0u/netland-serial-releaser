@@ -2,6 +2,7 @@
 #define SERIALS_RELEASER_H
 
 #include <QtGui/QMainWindow>
+#include <qgroupbox.h>
 #include "ui_serials_releaser.h"
 
 class serials_releaser : public QMainWindow
