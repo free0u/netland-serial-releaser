@@ -91,6 +91,7 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="serials_releaser.cpp" />
+    <ClCompile Include="serial_info.cpp" />
     <ClCompile Include="serial_item.cpp" />
     <ClCompile Include="xml_editor.cpp" />
   </ItemGroup>
@@ -122,6 +123,7 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_serials_releaser.h" />
     <ClInclude Include="GeneratedFiles\ui_serial_item.h" />
+    <ClInclude Include="serial_info.h" />
     <ClInclude Include="xml_editor.h" />
     <CustomBuild Include="serial_item.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
@@ -159,9 +161,6 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
     </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
