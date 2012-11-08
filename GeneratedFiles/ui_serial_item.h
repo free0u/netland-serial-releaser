@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'serial_item.ui'
 **
-** Created: Thu 8. Nov 23:43:01 2012
+** Created: Fri 9. Nov 03:44:19 2012
 **      by: Qt User Interface Compiler version 4.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -32,15 +32,15 @@ public:
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_5;
-    QLineEdit *lineEdit_5;
+    QLineEdit *lineEdit_sub;
     QPushButton *pasteButton_sub;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *label_4;
-    QLineEdit *lineEdit_4;
+    QLineEdit *lineEdit_video;
     QPushButton *pasteButton_video;
     QCheckBox *checkBox;
-    QLabel *label_title;
+    QLabel *label_serial_title;
     QLabel *label_7;
     QSpinBox *spinBox_season;
     QSpinBox *spinBox_episode;
@@ -72,10 +72,10 @@ public:
 
         horizontalLayout_2->addWidget(label_5);
 
-        lineEdit_5 = new QLineEdit(horizontalLayoutWidget_2);
-        lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
+        lineEdit_sub = new QLineEdit(horizontalLayoutWidget_2);
+        lineEdit_sub->setObjectName(QString::fromUtf8("lineEdit_sub"));
 
-        horizontalLayout_2->addWidget(lineEdit_5);
+        horizontalLayout_2->addWidget(lineEdit_sub);
 
         pasteButton_sub = new QPushButton(horizontalLayoutWidget_2);
         pasteButton_sub->setObjectName(QString::fromUtf8("pasteButton_sub"));
@@ -95,10 +95,10 @@ public:
 
         horizontalLayout->addWidget(label_4);
 
-        lineEdit_4 = new QLineEdit(horizontalLayoutWidget);
-        lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
+        lineEdit_video = new QLineEdit(horizontalLayoutWidget);
+        lineEdit_video->setObjectName(QString::fromUtf8("lineEdit_video"));
 
-        horizontalLayout->addWidget(lineEdit_4);
+        horizontalLayout->addWidget(lineEdit_video);
 
         pasteButton_video = new QPushButton(horizontalLayoutWidget);
         pasteButton_video->setObjectName(QString::fromUtf8("pasteButton_video"));
@@ -108,9 +108,9 @@ public:
         checkBox = new QCheckBox(serial_item);
         checkBox->setObjectName(QString::fromUtf8("checkBox"));
         checkBox->setGeometry(QRect(0, 0, 70, 17));
-        label_title = new QLabel(serial_item);
-        label_title->setObjectName(QString::fromUtf8("label_title"));
-        label_title->setGeometry(QRect(20, 0, 63, 20));
+        label_serial_title = new QLabel(serial_item);
+        label_serial_title->setObjectName(QString::fromUtf8("label_serial_title"));
+        label_serial_title->setGeometry(QRect(20, 0, 63, 20));
         label_7 = new QLabel(serial_item);
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setGeometry(QRect(220, 0, 86, 20));
@@ -127,11 +127,11 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         label_8 = new QLabel(serial_item);
         label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setGeometry(QRect(310, 0, 86, 20));
+        label_8->setGeometry(QRect(310, 0, 41, 20));
         horizontalLayoutWidget_2->raise();
         horizontalLayoutWidget->raise();
         checkBox->raise();
-        label_title->raise();
+        label_serial_title->raise();
         label_7->raise();
         spinBox_season->raise();
         spinBox_episode->raise();
@@ -152,7 +152,7 @@ public:
         label_4->setText(QApplication::translate("serial_item", "video", 0, QApplication::UnicodeUTF8));
         pasteButton_video->setText(QApplication::translate("serial_item", "paste", 0, QApplication::UnicodeUTF8));
         checkBox->setText(QString());
-        label_title->setText(QApplication::translate("serial_item", "Dexter", 0, QApplication::UnicodeUTF8));
+        label_serial_title->setText(QApplication::translate("serial_item", "Dexter", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("serial_item", "season", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("serial_item", "episode", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
