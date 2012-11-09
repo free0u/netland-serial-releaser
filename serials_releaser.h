@@ -2,6 +2,7 @@
 #define SERIALS_RELEASER_H
 
 #include <QtGui/QMainWindow>
+#include <QClipboard>
 #include <qgroupbox.h>
 #include "ui_serials_releaser.h"
 
@@ -27,10 +28,18 @@ public:
 
 	QString get_serial_code();
 
+
+
 private:
 	Ui::serials_releaserClass ui;
-
 	QVector<serial_item*> serial_items;
+
+public slots:
+	void copy_code();
+	void add_serial();
+	void update_code();
+signals:
+
 };
 
 #endif // SERIALS_RELEASER_H

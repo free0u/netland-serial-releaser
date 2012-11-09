@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'serial_item.ui'
 **
-** Created: Fri 9. Nov 17:26:28 2012
+** Created: Fri 9. Nov 19:47:23 2012
 **      by: Qt User Interface Compiler version 4.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

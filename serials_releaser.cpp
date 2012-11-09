@@ -1,12 +1,27 @@
 #include "serials_releaser.h"
 
+
 serials_releaser::serials_releaser(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags)
 {
 	ui.setupUi(this);
 	set_serials_list();
 
-	qDebug() << get_serial_code();
+	// copy code to clipboard
+	QObject::connect(ui.pushButton_copycode, SIGNAL(clicked()), this, SLOT(copy_code()));
+
+	// add serial
+	QObject::connect(ui.pushButton_addserial, SIGNAL(clicked()), this, SLOT(add_serial()));
+
+	// updating code
+	foreach (serial_item* item, serial_items) {
+		QObject::connect(item->ui.checkBox, SIGNAL(stateChanged(int)), this, SLOT(update_code()));
+		QObject::connect(item->ui.spinBox_episode, SIGNAL(valueChanged(int)), this, SLOT(update_code()));
+		QObject::connect(item->ui.spinBox_season, SIGNAL(valueChanged(int)), this, SLOT(update_code()));
+
+		QObject::connect(item->ui.lineEdit_sub, SIGNAL(textChanged(const QString &)), this, SLOT(update_code()));
+		QObject::connect(item->ui.lineEdit_video, SIGNAL(textChanged(const QString &)), this, SLOT(update_code()));
+	}
 }
 
 void serials_releaser::set_serials_list() {
@@ -15,17 +30,15 @@ void serials_releaser::set_serials_list() {
 	QVector<serial_info> serials = xe.load_data();
 
 	QVBoxLayout * lay = new QVBoxLayout();
+	serial_items.clear();
 	foreach(serial_info serial, serials) {
-		//QLabel * l = new QLabel();
-		//l->setText("item " + QString::number(i));
-		
 		serial_item * it = new serial_item();
 		it->ui.label_serial_title->setText(serial.title);
 		it->ui.spinBox_season->setValue(serial.season);
 		it->ui.spinBox_episode->setValue(serial.episode);
 		
 		serial_items.push_back(it);
-		
+		it->change_enabled_form();
 		lay->addWidget(it);
 	}
 	QWidget * w = new QWidget();
@@ -48,14 +61,14 @@ QVector<serial_info> serials_releaser::get_serial_info(bool need_checked) {
 		magnet_video = item->ui.lineEdit_video->text();
 		episode_num = item->ui.spinBox_episode->text().toInt();
 		season_num = item->ui.spinBox_season->text().toInt();
-		res.push_back(serial_info(title, magnet_video, magnet_sub, episode_num, season_num));
+		res.push_back(serial_info(title, magnet_video, magnet_sub, season_num, episode_num));
 	}
 
 	return res;
 }
 
 QString serials_releaser::get_serial_code() {
-	QVector<serial_info> info = get_serial_info(false);
+	QVector<serial_info> info = get_serial_info(true);
 
 	QFile file("template.html");
 	if (!file.open(QIODevice::ReadOnly)) {
@@ -101,3 +114,37 @@ serials_releaser::~serials_releaser()
 {
 
 }
+
+
+// slots
+void serials_releaser::copy_code() {
+	QClipboard * clip = QApplication::clipboard();
+	clip->setText(ui.plainTextEdit->toPlainText());
+}
+
+void serials_releaser::add_serial() {
+	QVector<serial_info> res = get_serial_info(false);
+	QString title;
+	int episode, season;
+	title = ui.lineEdit_title->text();
+	season = ui.lineEdit_season->text().toInt();
+	episode = ui.lineEdit_episode->text().toInt();
+
+	res.push_back(serial_info(title, season, episode));
+
+	// save to xml
+	xml_editor xe("serials.xml");
+	xe.save_data(res);
+
+	// update serial list
+	set_serials_list();
+}
+
+void serials_releaser::update_code() {
+	ui.plainTextEdit->setPlainText(get_serial_code());
+
+	// save to xml
+	xml_editor xe("serials.xml");
+	xe.save_data(get_serial_info(false));
+}
+

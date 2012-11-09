@@ -2,6 +2,7 @@
 #define SERIAL_ITEM_H
 
 #include <QWidget>
+#include <qclipboard.h>
 
 #include "ui_serial_item.h"
 class serial_item : public QWidget
@@ -15,6 +16,13 @@ public:
 	friend class serials_releaser;
 private:
 	Ui::serial_item ui;
+	void change_enabled_form();
+
+
+public slots:
+	void paste_magnet_video();
+	void paste_magnet_sub();
+	void slot_change_enabled_form();
 };
 
 #endif // SERIAL_ITEM_H
