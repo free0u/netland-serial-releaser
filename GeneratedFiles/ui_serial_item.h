@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'serial_item.ui'
 **
-** Created: Fri 9. Nov 03:44:19 2012
+** Created: Fri 9. Nov 17:26:28 2012
 **      by: Qt User Interface Compiler version 4.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -117,6 +117,8 @@ public:
         spinBox_season = new QSpinBox(serial_item);
         spinBox_season->setObjectName(QString::fromUtf8("spinBox_season"));
         spinBox_season->setGeometry(QRect(260, 0, 41, 20));
+        spinBox_season->setMouseTracking(false);
+        spinBox_season->setFocusPolicy(Qt::WheelFocus);
         spinBox_episode = new QSpinBox(serial_item);
         spinBox_episode->setObjectName(QString::fromUtf8("spinBox_episode"));
         spinBox_episode->setGeometry(QRect(350, 0, 41, 20));
@@ -128,16 +130,6 @@ public:
         label_8 = new QLabel(serial_item);
         label_8->setObjectName(QString::fromUtf8("label_8"));
         label_8->setGeometry(QRect(310, 0, 41, 20));
-        horizontalLayoutWidget_2->raise();
-        horizontalLayoutWidget->raise();
-        checkBox->raise();
-        label_serial_title->raise();
-        label_7->raise();
-        spinBox_season->raise();
-        spinBox_episode->raise();
-        line->raise();
-        label_8->raise();
-        label_5->raise();
 
         retranslateUi(serial_item);
 

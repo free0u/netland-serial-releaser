@@ -6,8 +6,6 @@
 #include <qvector.h>
 #include <QtXml> 
 
-
-
 class xml_editor
 {
 public:

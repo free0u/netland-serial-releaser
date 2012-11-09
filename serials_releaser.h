@@ -22,8 +22,15 @@ public:
 	~serials_releaser();
 
 	void set_serials_list();
+
+	QVector<serial_info> get_serial_info(bool);
+
+	QString get_serial_code();
+
 private:
 	Ui::serials_releaserClass ui;
+
+	QVector<serial_item*> serial_items;
 };
 
 #endif // SERIALS_RELEASER_H
