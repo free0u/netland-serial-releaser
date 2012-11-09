@@ -1,17 +1,15 @@
 #ifndef SERIALS_RELEASER_H
 #define SERIALS_RELEASER_H
 
-#include <QtGui/QMainWindow>
-#include <QClipboard>
-#include <qgroupbox.h>
-#include "ui_serials_releaser.h"
-
 #include "serial_item.h"
 #include "xml_editor.h"
 #include "serial_info.h"
+#include "ui_serials_releaser.h"
 
+#include <QtGui/QMainWindow>
+#include <qclipboard.h>
+#include <qgroupbox.h>
 #include <qvector.h>
-#include <qdebug.h>
 
 
 class serials_releaser : public QMainWindow

@@ -1,5 +1,4 @@
 #include "xml_editor.h"
-#include <qdebug.h>
 
 xml_editor::xml_editor(void)
 {
@@ -37,7 +36,6 @@ QVector<serial_info> xml_editor::load_data() {
 		title = serial.firstChildElement("title").text();
 		season = serial.firstChildElement("season").text().toInt();
 		episode = serial.firstChildElement("episode").text().toInt();
-		qDebug() << title << " " << season << " " << episode << endl;
 		
 		res.push_back(serial_info(title, season, episode));
 	}

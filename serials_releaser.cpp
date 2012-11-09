@@ -13,15 +13,6 @@ serials_releaser::serials_releaser(QWidget *parent, Qt::WFlags flags)
 	// add serial
 	QObject::connect(ui.pushButton_addserial, SIGNAL(clicked()), this, SLOT(add_serial()));
 
-	// updating code
-	foreach (serial_item* item, serial_items) {
-		QObject::connect(item->ui.checkBox, SIGNAL(stateChanged(int)), this, SLOT(update_code()));
-		QObject::connect(item->ui.spinBox_episode, SIGNAL(valueChanged(int)), this, SLOT(update_code()));
-		QObject::connect(item->ui.spinBox_season, SIGNAL(valueChanged(int)), this, SLOT(update_code()));
-
-		QObject::connect(item->ui.lineEdit_sub, SIGNAL(textChanged(const QString &)), this, SLOT(update_code()));
-		QObject::connect(item->ui.lineEdit_video, SIGNAL(textChanged(const QString &)), this, SLOT(update_code()));
-	}
 }
 
 void serials_releaser::set_serials_list() {
@@ -44,6 +35,16 @@ void serials_releaser::set_serials_list() {
 	QWidget * w = new QWidget();
 	w->setLayout(lay);
 	ui.scrollArea->setWidget(w);
+
+	// updating code
+	foreach (serial_item* item, serial_items) {
+		QObject::connect(item->ui.checkBox, SIGNAL(stateChanged(int)), this, SLOT(update_code()));
+		QObject::connect(item->ui.spinBox_episode, SIGNAL(valueChanged(int)), this, SLOT(update_code()));
+		QObject::connect(item->ui.spinBox_season, SIGNAL(valueChanged(int)), this, SLOT(update_code()));
+
+		QObject::connect(item->ui.lineEdit_sub, SIGNAL(textChanged(const QString &)), this, SLOT(update_code()));
+		QObject::connect(item->ui.lineEdit_video, SIGNAL(textChanged(const QString &)), this, SLOT(update_code()));
+	}
 }
 
 QVector<serial_info> serials_releaser::get_serial_info(bool need_checked) {

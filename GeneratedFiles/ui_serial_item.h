@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'serial_item.ui'
 **
-** Created: Fri 9. Nov 19:47:23 2012
+** Created: Fri 9. Nov 20:20:34 2012
 **      by: Qt User Interface Compiler version 4.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -110,7 +110,7 @@ public:
         checkBox->setGeometry(QRect(0, 0, 70, 17));
         label_serial_title = new QLabel(serial_item);
         label_serial_title->setObjectName(QString::fromUtf8("label_serial_title"));
-        label_serial_title->setGeometry(QRect(20, 0, 63, 20));
+        label_serial_title->setGeometry(QRect(20, 0, 191, 20));
         label_7 = new QLabel(serial_item);
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setGeometry(QRect(220, 0, 86, 20));

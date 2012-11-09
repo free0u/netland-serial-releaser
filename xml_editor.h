@@ -4,7 +4,7 @@
 
 #include <qstring.h>
 #include <qvector.h>
-#include <QtXml> 
+#include <QtXml>
 
 class xml_editor
 {
